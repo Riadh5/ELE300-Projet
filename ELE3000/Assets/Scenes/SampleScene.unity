@@ -256,7 +256,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201019572}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.731083, y: 2.7793407, z: 0.050816536}
+  m_LocalPosition: {x: 3.731083, y: 0.87, z: 0.050816536}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1019,27 +1019,14 @@ GameObject:
   - component: {fileID: 742371094}
   - component: {fileID: 742371093}
   - component: {fileID: 742371092}
-  - component: {fileID: 742371091}
+  - component: {fileID: 742371095}
   m_Layer: 0
-  m_Name: DeathZone
+  m_Name: PlayerDeathZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &742371091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 742371090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60703a86e7f18fc4b961066b9e5d0c02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Clone: {fileID: 4178662129243591598, guid: ee2006e0704148d4388e4c69d49c6983, type: 3}
 --- !u!114 &742371092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1095,6 +1082,19 @@ Transform:
   m_Father: {fileID: 1211757325}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &742371095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742371090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60703a86e7f18fc4b961066b9e5d0c02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Clone: {fileID: 4178662129243591598, guid: ee2006e0704148d4388e4c69d49c6983, type: 3}
 --- !u!1001 &761711694
 PrefabInstance:
   m_ObjectHideFlags: 0

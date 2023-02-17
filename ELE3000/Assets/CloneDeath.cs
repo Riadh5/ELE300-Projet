@@ -11,7 +11,7 @@ public class CloneDeath : MonoBehaviour
         if (collision1.gameObject.CompareTag("clone"))
         {
             Destroy(collision1.gameObject);
-            Instantiate(Clone, new Vector2(-5.94f, 1.76f), Quaternion.identity);
+            Instantiate(Clone, new Vector2(-5.94f, -1.75f), Quaternion.identity);
         }
     }
 }
