@@ -6,7 +6,6 @@ public class SpawnPlayers : MonoBehaviour
 {
     public GameObject Clones;
     public GameObject Player;
-    public TimeControl timeControl;
 
     // Update is called once per frame
     void Update()
@@ -19,18 +18,6 @@ public class SpawnPlayers : MonoBehaviour
             }
 
             Debug.Log("10 Clones created");
-        }
-
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            timeControl.GottaGoFast();
-            Debug.Log("10X SPEED");
-        }
-
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            timeControl.GottaGoBack();
-            Debug.Log("NORMAL SPEED");
         }
 
     }

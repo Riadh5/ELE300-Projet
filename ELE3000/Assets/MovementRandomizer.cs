@@ -21,14 +21,14 @@ public class MovementRandomizer : MonoBehaviour
         bool Boolean = (Random.value > 0.5f);
 
         //Randomizer
+ 
         if (timeLeft <= 0)
         {
             jump = Boolean;
 
-            movement = new Vector2(Random.Range(-2f, 2f), Random.Range(-1f, 1f));
+            movement = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
 
             timeLeft += accelerationTime;
-
         }
 
         //Animator stuff

@@ -6,7 +6,7 @@ public class CloneDeath : MonoBehaviour
 {
     public GameObject Clone;
 
-    void OnTriggerEnter2D(Collider2D collision1)
+    private void OnTriggerEnter2D(Collider2D collision1)
     {
         if (collision1.gameObject.CompareTag("clone"))
         {

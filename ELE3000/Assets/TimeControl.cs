@@ -18,4 +18,20 @@ public class TimeControl : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            GottaGoFast();
+            Debug.Log("10X SPEED");
+        }
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            GottaGoBack();
+            Debug.Log("NORMAL SPEED");
+        }
+    }
+
 }
+
