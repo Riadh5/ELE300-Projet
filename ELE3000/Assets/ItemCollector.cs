@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// DONE
+
 public class ItemCollector : MonoBehaviour
 {
     private int coins = 0;

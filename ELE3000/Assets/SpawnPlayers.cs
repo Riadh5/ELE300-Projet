@@ -2,30 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// DONE
+
 public class SpawnPlayers : MonoBehaviour
 {
     public GameObject Clones;
     public GameObject Player;
-    public GameObject[] gos;
+    public Transform PlayerPos;
 
-    // Update is called once per frame
-    void Update()
+    private GameObject[] CloneTable;
+
+    public void Spawner()
     {
+        CloneTable = new GameObject[10];
 
-        if (Input.GetKeyDown(KeyCode.N))
+        for (int i = 0; i < 10; i++) 
         {
+            GameObject clone = Instantiate(Clones, PlayerPos.transform.position, Quaternion.identity);
 
-            gos = new GameObject[10];
-
-            for (int i = 0; i < 5; i++) {
-
-                GameObject clone = Instantiate(Clones, new Vector2(-5.94f, 1.76f), Quaternion.identity);
-                gos[i] = clone;
-            }
-
-            Debug.Log("10 Clones created");
+            CloneTable[i] = clone;
         }
 
+        Debug.Log("10 Clones created");
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            Spawner();
+        }
     }
 
 }
