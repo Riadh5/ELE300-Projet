@@ -21,7 +21,12 @@ public class Respawn : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Player.transform.position = SpawnPoint.transform.position;
-        Debug.Log("Player spawned");
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Player.transform.position = SpawnPoint.transform.position;
+            Debug.Log("Player spawned");
+        }
+
     }
+    
 }

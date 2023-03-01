@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class CloneDeath : MonoBehaviour
 {
-    public GameObject Clone;
+    public Transform Clone;
+    public GameObject SpawnPoint;
 
-    private void OnTriggerEnter2D(Collider2D collision1)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision1.gameObject.CompareTag("Death"))
+        if (other.gameObject.CompareTag("Death"))
         {
-            Destroy(Clone);
+            // Move player back to spawn point
+            Clone.transform.position = SpawnPoint.transform.position;
         }
     }
 }

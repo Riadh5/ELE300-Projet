@@ -12,7 +12,13 @@ public class MovementRandomizer : MonoBehaviour
     public CharacterController2D controller;
     public Animator animator;
 
+    private float timer = 0f;
+    private bool isUpdating = true;
+
     bool jump = false;
+
+    public GameObject SpawnPoint;
+
 
     void Update()
     {
@@ -50,13 +56,57 @@ public class MovementRandomizer : MonoBehaviour
             animator.SetFloat("Speed", Mathf.Abs(movement[0]));
         }
 
+        if (isUpdating)
+        {
+            timer += Time.deltaTime;
+
+            if (timer >= 9f)
+            {
+                isUpdating = false;
+                StartCoroutine(StopUpdating());
+            }
+        }
+
+        SpawnPoint.transform.position = Vector3.zero;
+
     }
+
+
+    IEnumerator StopUpdating()
+    {
+        yield return new WaitForSeconds(5f);
+        enabled = false;
+
+        animator.SetBool("IsJumping", false);
+        animator.SetFloat("Speed", 0f);
+
+        GameObject[] allClones = GameObject.FindGameObjectsWithTag("clone");
+
+        float farthestRight = float.MinValue;
+        
+        Vector3 farthestRightPosition = Vector3.zero;
+
+        foreach (GameObject Clone in allClones)
+        {
+            if (Clone.transform.position.x > farthestRight)
+            {
+                farthestRight = Clone.transform.position.x;
+                farthestRightPosition = Clone.transform.position;
+            }
+        }
+
+        Debug.Log("Farthest right object position: " + farthestRightPosition);
+        SpawnPoint.transform.position = farthestRightPosition;
+
+    }
+
 
     void FixedUpdate()
     {
         controller.Move(movement[0] * Time.fixedDeltaTime * runSpeed, false, jump);
         jump = false;
     }
+
 
     public void OnLanding()
     {
