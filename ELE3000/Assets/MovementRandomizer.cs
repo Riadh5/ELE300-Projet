@@ -93,9 +93,12 @@ public class MovementRandomizer : MonoBehaviour
                 farthestRight = Clone.transform.position.x;
                 farthestRightPosition = Clone.transform.position;
             }
+
+            Destroy(Clone);
         }
 
         Debug.Log("Farthest right object position: " + farthestRightPosition);
+
         SpawnPoint.transform.position = farthestRightPosition;
 
     }

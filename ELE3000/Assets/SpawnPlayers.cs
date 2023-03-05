@@ -9,6 +9,7 @@ public class SpawnPlayers : MonoBehaviour
     public GameObject Clones;
     public GameObject Player;
     public Transform PlayerPos;
+    public GameObject Flag;
 
     private GameObject[] CloneTable;
 
@@ -31,7 +32,15 @@ public class SpawnPlayers : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.N))
         {
             Spawner();
+
+            //Invoke("Spawner", 15f);
+            Invoke("InstantiateObject", 14f);
         }
+    }
+
+    void InstantiateObject()
+    {
+        Instantiate(Flag, transform.position, transform.rotation);
     }
 
 }
