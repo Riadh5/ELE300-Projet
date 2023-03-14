@@ -556,6 +556,7 @@ MonoBehaviour:
   Clones: {fileID: 4178662129243591598, guid: ee2006e0704148d4388e4c69d49c6983, type: 3}
   Player: {fileID: 7630477122288372672, guid: 4831a5ce8afe4fb4b8759a60553c14a8, type: 3}
   PlayerPos: {fileID: 7630477122288372684, guid: 4831a5ce8afe4fb4b8759a60553c14a8, type: 3}
+  Flag: {fileID: 0}
 --- !u!4 &508358535
 Transform:
   m_ObjectHideFlags: 0

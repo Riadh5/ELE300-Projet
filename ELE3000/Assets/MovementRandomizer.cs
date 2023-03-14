@@ -101,6 +101,8 @@ public class MovementRandomizer : MonoBehaviour
 
         SpawnPoint.transform.position = farthestRightPosition;
 
+        Instantiate(SpawnPoint);
+
     }
 
 
