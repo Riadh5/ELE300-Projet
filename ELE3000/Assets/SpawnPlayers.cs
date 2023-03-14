@@ -33,14 +33,48 @@ public class SpawnPlayers : MonoBehaviour
         {
             Spawner();
 
-            //Invoke("Spawner", 15f);
-            Invoke("InstantiateObject", 14f);
+            for (int i = 1; i < 10; i++)
+            {
+                Invoke("TransformPosGameObject", (20 * i) - 2);
+                Invoke("ActivateGameObject", 20f * i);
+            }
+                
+        }
+
+    }
+
+
+    void TransformPosGameObject()
+    {
+        Debug.Log("Position transformed");
+
+        foreach (GameObject clone in CloneTable)
+        {
+            clone.transform.position = Flag.transform.position;
+        }
+
+    }
+
+
+    void ActivateGameObject()
+    {
+        Debug.Log("clone activated");
+
+        foreach (GameObject clone in CloneTable)
+        {
+            clone.SetActive(true);
         }
     }
 
-    void InstantiateObject()
+
+    void DestroyFlag()
     {
-        Instantiate(Flag, transform.position, transform.rotation);
+        GameObject[] OldFlags = GameObject.FindGameObjectsWithTag("Flag");
+
+        foreach (GameObject flag in OldFlags)
+        {
+            Destroy(flag);
+        }
     }
 
 }

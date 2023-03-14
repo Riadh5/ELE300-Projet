@@ -7,6 +7,7 @@ TagManager:
   - Coin
   - clone
   - Death
+  - Flag
   layers:
   - Default
   - TransparentFX

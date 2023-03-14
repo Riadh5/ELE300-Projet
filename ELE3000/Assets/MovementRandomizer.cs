@@ -60,7 +60,7 @@ public class MovementRandomizer : MonoBehaviour
         {
             timer += Time.deltaTime;
 
-            if (timer >= 9f)
+            if (timer >= 10f)
             {
                 isUpdating = false;
                 StartCoroutine(StopUpdating());
@@ -74,7 +74,7 @@ public class MovementRandomizer : MonoBehaviour
 
     IEnumerator StopUpdating()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(15f);
         enabled = false;
 
         animator.SetBool("IsJumping", false);
@@ -94,7 +94,7 @@ public class MovementRandomizer : MonoBehaviour
                 farthestRightPosition = Clone.transform.position;
             }
 
-            Destroy(Clone);
+            Clone.SetActive(false);
         }
 
         Debug.Log("Farthest right object position: " + farthestRightPosition);
@@ -110,6 +110,9 @@ public class MovementRandomizer : MonoBehaviour
     {
         controller.Move(movement[0] * Time.fixedDeltaTime * runSpeed, false, jump);
         jump = false;
+
+        isUpdating = true;
+
     }
 
 
