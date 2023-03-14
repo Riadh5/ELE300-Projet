@@ -33,10 +33,11 @@ public class SpawnPlayers : MonoBehaviour
         {
             Spawner();
 
-            for (int i = 1; i < 10; i++)
+            for (int i = 1; i < 100; i++)
             {
                 Invoke("TransformPosGameObject", (20 * i) - 2);
                 Invoke("ActivateGameObject", 20f * i);
+                Invoke("DestroyFlag", 20f * 2 * i);
             }
                 
         }
@@ -58,11 +59,17 @@ public class SpawnPlayers : MonoBehaviour
 
     void ActivateGameObject()
     {
-        Debug.Log("clone activated");
 
         foreach (GameObject clone in CloneTable)
         {
+            MovementRandomizer myComponent = clone.GetComponent<MovementRandomizer>();
+
             clone.SetActive(true);
+
+            if (myComponent != null)
+            {
+                myComponent.enabled = true;
+            }
         }
     }
 
