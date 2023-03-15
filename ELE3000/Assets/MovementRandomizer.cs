@@ -27,7 +27,7 @@ public class MovementRandomizer : MonoBehaviour
         bool Boolean = (Random.value > 0.5f);
 
         //Randomizer
- 
+
         if (timeLeft <= 0)
         {
             jump = Boolean;
@@ -74,7 +74,7 @@ public class MovementRandomizer : MonoBehaviour
 
     IEnumerator StopUpdating()
     {
-        yield return new WaitForSeconds(15f);
+        yield return new WaitForSeconds(19f);
         enabled = false;
 
         animator.SetBool("IsJumping", false);

@@ -57,15 +57,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7630477122288372684, guid: 4831a5ce8afe4fb4b8759a60553c14a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.5385196
+      value: 0.8989172
       objectReference: {fileID: 0}
     - target: {fileID: 7630477122288372684, guid: 4831a5ce8afe4fb4b8759a60553c14a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.968811
+      value: -1.6993407
       objectReference: {fileID: 0}
     - target: {fileID: 7630477122288372684, guid: 4831a5ce8afe4fb4b8759a60553c14a8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -10.568685
       objectReference: {fileID: 0}
     - target: {fileID: 7630477122288372684, guid: 4831a5ce8afe4fb4b8759a60553c14a8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -138,11 +138,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 7630477122288372681, guid: 4831a5ce8afe4fb4b8759a60553c14a8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4831a5ce8afe4fb4b8759a60553c14a8, type: 3}
---- !u!4 &4178662129243591586 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7630477122288372684, guid: 4831a5ce8afe4fb4b8759a60553c14a8, type: 3}
-  m_PrefabInstance: {fileID: 5771769273312565358}
-  m_PrefabAsset: {fileID: 0}
 --- !u!95 &4178662129243591590 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 7630477122288372680, guid: 4831a5ce8afe4fb4b8759a60553c14a8, type: 3}
@@ -164,20 +159,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7630477122288372672, guid: 4831a5ce8afe4fb4b8759a60553c14a8, type: 3}
   m_PrefabInstance: {fileID: 5771769273312565358}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-8500355999710652273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4178662129243591598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60703a86e7f18fc4b961066b9e5d0c02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Clone: {fileID: 4178662129243591586}
-  SpawnPoint: {fileID: 790114956609416344, guid: aef9828280a9eea4292e1d9c0872b109, type: 3}
 --- !u!114 &-2141381401321878307
 MonoBehaviour:
   m_ObjectHideFlags: 0

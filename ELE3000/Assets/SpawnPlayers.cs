@@ -13,19 +13,11 @@ public class SpawnPlayers : MonoBehaviour
 
     private GameObject[] CloneTable;
 
-    public void Spawner()
-    {
-        CloneTable = new GameObject[10];
+    private int counter = 0;
+    private float lastLogTime = 0f;
+    private float logInterval = 20f;
+    private bool isLogging = false;
 
-        for (int i = 0; i < 10; i++) 
-        {
-            GameObject clone = Instantiate(Clones, PlayerPos.transform.position, Quaternion.identity);
-
-            CloneTable[i] = clone;
-        }
-
-        Debug.Log("10 Clones created");
-    }
 
     void Update()
     {
@@ -35,13 +27,35 @@ public class SpawnPlayers : MonoBehaviour
 
             for (int i = 1; i < 100; i++)
             {
-                Invoke("TransformPosGameObject", (20 * i) - 2);
+                Invoke("TransformPosGameObject", (20 * i) - 1);
                 Invoke("ActivateGameObject", 20f * i);
-                Invoke("DestroyFlag", 20f * 2 * i);
+                Invoke("DestroyFlag", 20f * i);
             }
-                
+
+            isLogging = true;
         }
 
+        if (isLogging && Time.time - lastLogTime >= logInterval)
+        {
+            counter++;
+            Debug.Log("Génération : " + counter);
+            lastLogTime = Time.time;
+        }
+    }
+
+
+    public void Spawner()
+    {
+        CloneTable = new GameObject[10];
+
+        for (int i = 0; i < 10; i++)
+        {
+            GameObject clone = Instantiate(Clones, PlayerPos.transform.position, Quaternion.identity);
+
+            CloneTable[i] = clone;
+        }
+
+        Debug.Log("10 Clones created");
     }
 
 
