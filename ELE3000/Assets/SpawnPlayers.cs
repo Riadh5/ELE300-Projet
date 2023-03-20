@@ -15,8 +15,11 @@ public class SpawnPlayers : MonoBehaviour
 
     private int counter = 0;
     private float lastLogTime = 0f;
-    private float logInterval = 20f;
+    private float logInterval = 15f;
     private bool isLogging = false;
+
+    GameObject farthestRightFlag = null;
+    float farthestRightX = Mathf.NegativeInfinity;
 
 
     void Update()
@@ -27,9 +30,9 @@ public class SpawnPlayers : MonoBehaviour
 
             for (int i = 1; i < 100; i++)
             {
-                Invoke("TransformPosGameObject", (20 * i) - 1);
-                Invoke("ActivateGameObject", 20f * i);
-                Invoke("DestroyFlag", 20f * i);
+                Invoke("TransformPosGameObject", (15 * i) - 1);
+                Invoke("ActivateGameObject", 15f * i);
+                //Invoke("DestroyFlag", 15f * i);
             }
 
             isLogging = true;
@@ -63,9 +66,21 @@ public class SpawnPlayers : MonoBehaviour
     {
         Debug.Log("Position transformed");
 
+        GameObject[] flags = GameObject.FindGameObjectsWithTag("Flag");
+
+        foreach (GameObject flag in flags)
+        {
+            float x = flag.transform.position.x;
+            if (x > farthestRightX)
+            {
+                farthestRightFlag = flag;
+                farthestRightX = x;
+            }
+        }
+
         foreach (GameObject clone in CloneTable)
         {
-            clone.transform.position = Flag.transform.position;
+            clone.transform.position = farthestRightFlag.transform.position;
         }
 
     }

@@ -74,7 +74,7 @@ public class MovementRandomizer : MonoBehaviour
 
     IEnumerator StopUpdating()
     {
-        yield return new WaitForSeconds(19f);
+        yield return new WaitForSeconds(10f);
         enabled = false;
 
         animator.SetBool("IsJumping", false);
