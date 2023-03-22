@@ -14,9 +14,9 @@ public class TimeControl : MonoBehaviour
 
     public void GottaGoBack()
     {
-        if (Time.timeScale > 1)
+        if (Time.timeScale >= 1)
         {
-            Time.timeScale = 1;
+            Time.timeScale = 0.05f;
         }
     }
 

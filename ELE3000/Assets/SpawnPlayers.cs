@@ -13,11 +13,6 @@ public class SpawnPlayers : MonoBehaviour
 
     private GameObject[] CloneTable;
 
-    private int counter = 0;
-    private float lastLogTime = 0f;
-    private float logInterval = 15f;
-    private bool isLogging = false;
-
     GameObject farthestRightFlag = null;
     float farthestRightX = Mathf.NegativeInfinity;
 
@@ -34,15 +29,6 @@ public class SpawnPlayers : MonoBehaviour
                 Invoke("ActivateGameObject", 15f * i);
                 //Invoke("DestroyFlag", 15f * i);
             }
-
-            isLogging = true;
-        }
-
-        if (isLogging && Time.time - lastLogTime >= logInterval)
-        {
-            counter++;
-            Debug.Log("Génération : " + counter);
-            lastLogTime = Time.time;
         }
     }
 

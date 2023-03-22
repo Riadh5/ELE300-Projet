@@ -8,6 +8,8 @@ TagManager:
   - clone
   - Death
   - Flag
+  - Portal
+  - Fail
   layers:
   - Default
   - TransparentFX
