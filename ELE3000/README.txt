@@ -14,4 +14,6 @@ pip install importlib-metadata==4.4
 
 mlagents-learn --help
 
-mlagents-learn --run-id=test###
+mlagents-learn config\ppo\GetPortal.yaml --run-id=test###
+
+tensorboard --logdir=results --host localhost

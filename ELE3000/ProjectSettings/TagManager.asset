@@ -10,6 +10,7 @@ TagManager:
   - Flag
   - Portal
   - Fail
+  - SecialCoin
   layers:
   - Default
   - TransparentFX

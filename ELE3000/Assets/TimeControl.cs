@@ -3,12 +3,10 @@ using UnityEngine;
 // DONE
 
 public class TimeControl : MonoBehaviour
-{
-    public float AccelerationFactor = 2f;
-
+{ 
     public void GottaGoFast()
     {
-        Time.timeScale = AccelerationFactor;
+        Time.timeScale = 20f;
 
     }
 
@@ -16,7 +14,7 @@ public class TimeControl : MonoBehaviour
     {
         if (Time.timeScale >= 1)
         {
-            Time.timeScale = 0.05f;
+            Time.timeScale = Time.timeScale / 20f;
         }
     }
 

@@ -14,45 +14,39 @@ public class MLMoveAndCollect : Agent {
     public CharacterController2D controller;
     public Animator animator;
 
-    private float runSpeed = 100f;
-    bool jump = false;
+    private float runSpeed = 75f;
+
+    public GameObject SpawnPoint;
+
+    public override void Initialize()
+    {
+        SpawnPoint.transform.position = new Vector3(-5.95f, -1.75f, 0f);
+        Time.timeScale = 1f;
+    }
     
     public override void OnEpisodeBegin()
     {
-        transform.position = new Vector3(-5.94999981f, -1.75f, 0f);
+        transform.position = SpawnPoint.transform.position;
     }
 
     public override void CollectObservations(VectorSensor sensor)
     {
         sensor.AddObservation(transform.position);
-        sensor.AddObservation(Coin.position);
         sensor.AddObservation(Portal.position);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
     {
-        float HorizontalMove = actions.ContinuousActions[0];
-        float Vjump = actions.ContinuousActions[1];
+        float HorizontalMove = actions.DiscreteActions[1];
+        bool Vjump = actions.DiscreteActions[0] == 1;
 
-        float initialDistance = Vector3.Distance(transform.position, Portal.transform.position);
-
-        if(HorizontalMove > 0f)
+        if(HorizontalMove > 0.5f)
         {
-            SetReward(0.1f);
-        }
-
-        if(HorizontalMove < 0f)
-        {
-            SetReward(-0.1f);
-        }
-
-        if (Vjump > 0f)
-        {
-            jump = true;
+            HorizontalMove = 1f;
         }
         else
         {
-            jump = false;
+            HorizontalMove = -1f;
         }
 
         //Animation Stuff
@@ -65,7 +59,7 @@ public class MLMoveAndCollect : Agent {
             animator.SetFloat("Speed", Mathf.Abs(HorizontalMove));
         }
 
-        if (jump == true)
+        if (Vjump == true)
         {
             animator.SetBool("IsJumping", true);
         }
@@ -74,18 +68,9 @@ public class MLMoveAndCollect : Agent {
             animator.SetBool("IsJumping", false);
         }
 
-        controller.Move(HorizontalMove * Time.fixedDeltaTime * runSpeed, false, jump);
+        controller.Move(HorizontalMove * Time.fixedDeltaTime * runSpeed, false, Vjump);
 
-        float currentDistance = Vector3.Distance(transform.position, Portal.transform.position);
-
-        if (currentDistance < initialDistance)
-        {
-            SetReward(1f);
-        }
-        else
-        {
-            SetReward(-1f);
-        }
+        AddReward(-1 / MaxStep);
 
     }
 
@@ -93,9 +78,7 @@ public class MLMoveAndCollect : Agent {
     {
         if (other.gameObject.CompareTag("Coin"))
         {
-            SetReward(3f);
-
-            EndEpisode();
+            AddReward(1f);
 
             Debug.Log("Coin (+) REWARD");
 
@@ -103,14 +86,16 @@ public class MLMoveAndCollect : Agent {
 
         if (other.gameObject.CompareTag("Death"))
         {
-            SetReward(-1f);
+            AddReward(-1f);
+
+            EndEpisode();
 
             Debug.Log("Death (-) REWARD");
         }
 
         if (other.gameObject.CompareTag("Portal"))
         {
-            SetReward(10f);
+            AddReward(10f);
 
             EndEpisode();
 
@@ -119,10 +104,20 @@ public class MLMoveAndCollect : Agent {
 
         if (other.gameObject.CompareTag("Fail"))
         {
-            SetReward(-100f);
+            AddReward(-10f);
 
             EndEpisode();
         }
+
+        if (other.gameObject.CompareTag("Flag"))
+        {
+            AddReward(1f);
+
+            FindFarthestClone();
+
+            Destroy(other.gameObject);
+        }
+
     }
 
     public void OnLanding()
@@ -130,4 +125,26 @@ public class MLMoveAndCollect : Agent {
         animator.SetBool("IsJumping", false);
     }
 
+    public void FindFarthestClone()
+    {
+        GameObject[] allClones = GameObject.FindGameObjectsWithTag("clone");
+
+        float farthestRight = float.MinValue;
+
+        Vector3 farthestRightPosition = Vector3.zero;
+
+        foreach (GameObject Clone in allClones)
+        {
+            if (Clone.transform.position.x > farthestRight)
+            {
+                farthestRight = Clone.transform.position.x;
+                farthestRightPosition = Clone.transform.position;
+            }
+        }
+
+        SpawnPoint.transform.position = farthestRightPosition;
+        Instantiate(SpawnPoint);
+
+        Debug.Log("New flag on : " + farthestRightPosition);
+    }
 }
