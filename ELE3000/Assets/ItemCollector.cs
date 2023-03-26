@@ -14,7 +14,7 @@ public class ItemCollector : MonoBehaviour
         if (collision.gameObject.CompareTag("Coin"))
         {
             // d�truit l'objet apr�s collision
-            Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
 
             // ajoute une pi�ce au compteur 
             coins++;

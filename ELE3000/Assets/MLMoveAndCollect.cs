@@ -8,38 +8,47 @@ using Unity.MLAgents.Sensors;
 
 public class MLMoveAndCollect : Agent {
 
+    //Calling position inside unity
     [SerializeField] private Transform Coin;
     [SerializeField] private Transform Portal;
 
+    //Calling needed functions
     public CharacterController2D controller;
     public Animator animator;
 
+    //Calling necessary objects
     private float runSpeed = 75f;
-
     public GameObject SpawnPoint;
+    public GameObject[] allRespawns;
 
+    //Start position and time called at the beginning
     public override void Initialize()
     {
         SpawnPoint.transform.position = new Vector3(-5.95f, -1.75f, 0f);
         Time.timeScale = 1f;
     }
     
+    //Every EpisodeEnd() this is called to respawn the gameObject
     public override void OnEpisodeBegin()
     {
         transform.position = SpawnPoint.transform.position;
     }
 
+    //Collects the position of the clone and the portal to know where to end up
     public override void CollectObservations(VectorSensor sensor)
     {
         sensor.AddObservation(transform.position);
         sensor.AddObservation(Portal.position);
     }
 
+    //Manages the movements and animator 
     public override void OnActionReceived(ActionBuffers actions)
     {
+        //random values generated between 0 and 1 for movement and jumping
         float HorizontalMove = actions.DiscreteActions[1];
         bool Vjump = actions.DiscreteActions[0] == 1;
 
+        //Creates a middle point for left and right movements
         if(HorizontalMove > 0.5f)
         {
             HorizontalMove = 1f;
@@ -49,7 +58,7 @@ public class MLMoveAndCollect : Agent {
             HorizontalMove = -1f;
         }
 
-        //Animation Stuff
+        //Animation Stuff [STILL BUGGED OUT]
         if (HorizontalMove > 0.01f)
         {
             animator.SetFloat("Speed", Mathf.Abs(HorizontalMove));
@@ -68,14 +77,18 @@ public class MLMoveAndCollect : Agent {
             animator.SetBool("IsJumping", false);
         }
 
+        //Actual movement command
         controller.Move(HorizontalMove * Time.fixedDeltaTime * runSpeed, false, Vjump);
 
+        //Incentive to do the minimum amount of movement possible
         AddReward(-1 / MaxStep);
 
     }
 
+    //Reward structure
     private void OnTriggerEnter2D(Collider2D other)
     {
+        // +1 on coin
         if (other.gameObject.CompareTag("Coin"))
         {
             AddReward(1f);
@@ -84,6 +97,7 @@ public class MLMoveAndCollect : Agent {
 
         }
 
+        // -1 on death
         if (other.gameObject.CompareTag("Death"))
         {
             AddReward(-1f);
@@ -93,15 +107,21 @@ public class MLMoveAndCollect : Agent {
             Debug.Log("Death (-) REWARD");
         }
 
+        // +10 on portal
         if (other.gameObject.CompareTag("Portal"))
         {
             AddReward(10f);
+
+            //Calls after win
+            WeTheBest();
+            DestroyFlag();
 
             EndEpisode();
 
             Debug.Log("Portal (+) REWARD");
         }
 
+        // -10 on fail (fail is the caracter leaving the map)
         if (other.gameObject.CompareTag("Fail"))
         {
             AddReward(-10f);
@@ -109,22 +129,26 @@ public class MLMoveAndCollect : Agent {
             EndEpisode();
         }
 
+        // +1 on flag or checkpoint
         if (other.gameObject.CompareTag("Flag"))
         {
             AddReward(1f);
 
+            //Puts a flag/checkpoint on the farthest clone on set positions
             FindFarthestClone();
 
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
         }
 
     }
 
+    //Animator stuff [BUGGED]
     public void OnLanding()
     {
         animator.SetBool("IsJumping", false);
     }
 
+    //Creates a flag where to farthest clone is
     public void FindFarthestClone()
     {
         GameObject[] allClones = GameObject.FindGameObjectsWithTag("clone");
@@ -147,4 +171,46 @@ public class MLMoveAndCollect : Agent {
 
         Debug.Log("New flag on : " + farthestRightPosition);
     }
+
+    //After reaching a portal the following happens
+    void WeTheBest()
+    {
+        SpawnPoint.transform.position = new Vector3(-5.95f, -1.75f, 0f);
+
+        //Re-activates the checkpoints
+        foreach (GameObject check in allRespawns)
+        {
+            check.SetActive(true);
+
+            Debug.Log("Reinitialized cause : win");
+        }
+
+        GameObject[] allclones = GameObject.FindGameObjectsWithTag("clone");
+
+        //Puts every clone back to the beginning
+        foreach (GameObject clone in allclones)
+        {
+            clone.transform.position = SpawnPoint.transform.position;
+        }
+
+        GameObject[] allcoins = GameObject.FindGameObjectsWithTag("Coin");
+
+        //Re-activates the coins in the level
+        foreach (GameObject coin in allcoins)
+        {
+            coin.SetActive(true);
+        }
+    }
+
+    //Removes flags
+    void DestroyFlag()
+    {
+        GameObject[] OldFlags = GameObject.FindGameObjectsWithTag("Respawn");
+
+        foreach (GameObject flag in OldFlags)
+        {
+            Destroy(flag);
+        }
+    }
+
 }
