@@ -6,15 +6,14 @@ public class TimeControl : MonoBehaviour
 { 
     public void GottaGoFast()
     {
-        Time.timeScale = 20f;
-
+        Time.timeScale = 10f;
     }
 
     public void GottaGoBack()
     {
         if (Time.timeScale >= 1)
         {
-            Time.timeScale = Time.timeScale / 20f;
+            Time.timeScale = 1f;
         }
     }
 

@@ -17,7 +17,7 @@ public class MLMoveAndCollect : Agent {
     public Animator animator;
 
     //Calling necessary objects
-    private float runSpeed = 75f;
+    private float runSpeed = 60f;
     public GameObject SpawnPoint;
     public GameObject[] allRespawns;
 
@@ -48,7 +48,7 @@ public class MLMoveAndCollect : Agent {
         float HorizontalMove = actions.DiscreteActions[1];
         bool Vjump = actions.DiscreteActions[0] == 1;
 
-        //Creates a middle point for left and right movements
+        //Creates a middle point for left and right movements AJOUTER UN RANDOM FAIL SAFE
         if(HorizontalMove > 0.5f)
         {
             HorizontalMove = 1f;
@@ -91,7 +91,7 @@ public class MLMoveAndCollect : Agent {
         // +1 on coin
         if (other.gameObject.CompareTag("Coin"))
         {
-            AddReward(1f);
+            AddReward(3f);
 
             Debug.Log("Coin (+) REWARD");
 
@@ -115,10 +115,10 @@ public class MLMoveAndCollect : Agent {
             //Calls after win
             WeTheBest();
             DestroyFlag();
+            
+            // RandomPortal(); WORK IN PROGRESS
 
             EndEpisode();
-
-            Debug.Log("Portal (+) REWARD");
         }
 
         // -10 on fail (fail is the caracter leaving the map)
@@ -168,8 +168,6 @@ public class MLMoveAndCollect : Agent {
 
         SpawnPoint.transform.position = farthestRightPosition;
         Instantiate(SpawnPoint);
-
-        Debug.Log("New flag on : " + farthestRightPosition);
     }
 
     //After reaching a portal the following happens
@@ -181,8 +179,6 @@ public class MLMoveAndCollect : Agent {
         foreach (GameObject check in allRespawns)
         {
             check.SetActive(true);
-
-            Debug.Log("Reinitialized cause : win");
         }
 
         GameObject[] allclones = GameObject.FindGameObjectsWithTag("clone");
@@ -210,6 +206,28 @@ public class MLMoveAndCollect : Agent {
         foreach (GameObject flag in OldFlags)
         {
             Destroy(flag);
+        }
+    }
+
+    void RandomPortal()
+    {
+        switch (Random.Range(1, 5))
+        {
+            case 1:
+                Portal.transform.position = new Vector3(43.4599991f, -2.61590004f, 0f);
+                break;
+            case 2:
+                Portal.transform.position = new Vector3(36.5699997f, -2.61590004f, 0f);
+                break;
+            case 3:
+                Portal.transform.position = new Vector3(38.8499985f, 1.94000006f, 0f);
+                break;
+            case 4:
+                Portal.transform.position = new Vector3(25.6900005f, 1.41999996f, 0f);
+                break;
+            default:
+                Debug.LogError("Invalid choice!");
+                break;
         }
     }
 

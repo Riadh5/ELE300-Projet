@@ -7,6 +7,8 @@ public class Reseter : MonoBehaviour
     public GameObject[] coins;
     public Transform cameraStartPosition;
 
+    private float GenCount = 0f;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("clone"))
@@ -17,6 +19,10 @@ public class Reseter : MonoBehaviour
             }
 
             ResetCameraPosition();
+
+            GenCount++;
+
+            Debug.Log("Generation :" + GenCount);
         }
     }
 
