@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Reseter : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class Reseter : MonoBehaviour
     public Transform cameraStartPosition;
 
     private float GenCount = 0f;
+
+    [SerializeField] private Text genText;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -21,6 +24,8 @@ public class Reseter : MonoBehaviour
             ResetCameraPosition();
 
             GenCount++;
+
+            genText.text = " : " + GenCount;
 
             Debug.Log("Generation :" + GenCount);
         }

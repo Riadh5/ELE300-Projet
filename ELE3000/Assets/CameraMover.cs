@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class CameraMover : MonoBehaviour
 {
+    public Transform Player;
+
     void Update()
     {
         GameObject[] allclone = GameObject.FindGameObjectsWithTag("clone");
+
+        int screenWidth = Screen.width;
+        Vector3 screenRight = Camera.main.ScreenToWorldPoint(new Vector3(screenWidth, 0f, 0f));
+        float screenRightX = screenRight.x;
 
         foreach (GameObject clone in allclone)
         {
             if (clone != null)
             {
-                int screenWidth = Screen.width;
-                Vector3 screenRight = Camera.main.ScreenToWorldPoint(new Vector3(screenWidth, 0f, 0f));
-                float screenRightX = screenRight.x;
                 float cloneX = clone.transform.position.x;
 
                 if (cloneX + 3f > screenRightX)
@@ -25,6 +28,15 @@ public class CameraMover : MonoBehaviour
                 }
             }
         }
-        
+
+        float playerX = Player.transform.position.x;
+
+        if (playerX + 3f > screenRightX)
+        {
+            float cameraX = Camera.main.transform.position.x;
+            float delta = playerX - screenRightX;
+            Camera.main.transform.position = new Vector3(cameraX + delta + 15, Camera.main.transform.position.y, Camera.main.transform.position.z);
+        }
+
     }
 }
