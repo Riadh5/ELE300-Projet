@@ -32,7 +32,7 @@ python3 -m pip install --upgrade pip
 
 pip3 install torch~=1.9.1 -f https://download.pytorch.org/whl/torch_stable.html   
 
-python -m pip install mlagents==0.30.0
+pip install mlagents
 
 pip install protobuf==3.20.0
 
