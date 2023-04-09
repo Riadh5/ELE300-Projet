@@ -19,6 +19,28 @@ mlagents-learn config\ppo\GetPortal.yaml --run-id=test###
 tensorboard --logdir=results --host localhost
 
 
+
+// MAC
+
+cd /Users/kamelbenseghier/Documents/GitHub/ELE300-Projet/ELE3000
+
+python -m venv venv
+
+source venv/bin/activate
+
+python3 -m pip install --upgrade pip
+
+pip3 install torch~=1.9.1 -f https://download.pytorch.org/whl/torch_stable.html   
+
+python -m pip install mlagents==0.30.0
+
+pip install protobuf==3.20.0
+
+mlagents-learn --help
+
+mlagents-learn config/ppo/GetPortal.yaml --run-id=test###
+
+
 // RAPPORT
 
 UNE ERREUR NOTÉE 
