@@ -81,7 +81,7 @@ public class MLMoveAndCollect : Agent {
         controller.Move(HorizontalMove * Time.fixedDeltaTime * runSpeed, false, Vjump);
 
         //Incentive to do the minimum amount of movement possible
-        AddReward(-1 / MaxStep);
+        AddReward(-0.5f / MaxStep);
 
     }
 
@@ -91,7 +91,7 @@ public class MLMoveAndCollect : Agent {
         // +1 on coin
         if (other.gameObject.CompareTag("Coin"))
         {
-            AddReward(3f);
+            AddReward(1f);
 
             Debug.Log("Coin (+) REWARD");
 
@@ -110,7 +110,7 @@ public class MLMoveAndCollect : Agent {
         // +10 on portal
         if (other.gameObject.CompareTag("Portal"))
         {
-            AddReward(10f);
+            AddReward(3f);
 
             //Calls after win
             WeTheBest();
@@ -132,7 +132,7 @@ public class MLMoveAndCollect : Agent {
         // +1 on flag or checkpoint
         if (other.gameObject.CompareTag("Flag"))
         {
-            AddReward(1f);
+            AddReward(2f);
 
             //Puts a flag/checkpoint on the farthest clone on set positions
             FindFarthestClone();

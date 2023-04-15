@@ -24,7 +24,7 @@ public class CameraMover : MonoBehaviour
                 {
                     float cameraX = Camera.main.transform.position.x;
                     float delta = cloneX - screenRightX;
-                    Camera.main.transform.position = new Vector3(cameraX + delta + 15f, Camera.main.transform.position.y, Camera.main.transform.position.z);
+                    Camera.main.transform.position = new Vector3(cameraX + delta + 5f, Camera.main.transform.position.y, Camera.main.transform.position.z);
                 }
             }
         }
