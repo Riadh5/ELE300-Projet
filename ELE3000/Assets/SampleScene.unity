@@ -281,7 +281,7 @@ MonoBehaviour:
   TeamId: 0
   m_UseChildSensors: 1
   m_UseChildActuators: 1
-  m_ObservableAttributeHandling: 0
+  m_ObservableAttributeHandling: 2
 --- !u!114 &6193022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13297,7 +13297,7 @@ MonoBehaviour:
   TeamId: 0
   m_UseChildSensors: 1
   m_UseChildActuators: 1
-  m_ObservableAttributeHandling: 0
+  m_ObservableAttributeHandling: 2
 --- !u!114 &344325774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14451,7 +14451,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 551097525}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 80.744644, y: -0.101607084, z: 0.20505847}
+  m_LocalPosition: {x: 80.3, y: -0.101607084, z: 0.20505847}
   m_LocalScale: {x: 4.9138, y: 3.6248763, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14496,8 +14496,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 897825059
-  m_SortingLayer: -3
+  m_SortingLayerID: 1963620287
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: 800904857, guid: cc6ea00ca67cbfb44ac2901f4ec5607f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -14579,7 +14579,7 @@ MonoBehaviour:
   TeamId: 0
   m_UseChildSensors: 1
   m_UseChildActuators: 1
-  m_ObservableAttributeHandling: 0
+  m_ObservableAttributeHandling: 2
 --- !u!114 &615815434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14881,7 +14881,7 @@ MonoBehaviour:
   TeamId: 0
   m_UseChildSensors: 1
   m_UseChildActuators: 1
-  m_ObservableAttributeHandling: 0
+  m_ObservableAttributeHandling: 2
 --- !u!114 &618954007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15312,7 +15312,7 @@ MonoBehaviour:
   TeamId: 0
   m_UseChildSensors: 1
   m_UseChildActuators: 1
-  m_ObservableAttributeHandling: 0
+  m_ObservableAttributeHandling: 2
 --- !u!114 &716500719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16513,7 +16513,7 @@ MonoBehaviour:
   TeamId: 0
   m_UseChildSensors: 1
   m_UseChildActuators: 1
-  m_ObservableAttributeHandling: 0
+  m_ObservableAttributeHandling: 2
 --- !u!114 &796935673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16815,7 +16815,7 @@ MonoBehaviour:
   TeamId: 0
   m_UseChildSensors: 1
   m_UseChildActuators: 1
-  m_ObservableAttributeHandling: 0
+  m_ObservableAttributeHandling: 2
 --- !u!114 &813449835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18593,7 +18593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.039400704, g: 0.6698113, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -18727,7 +18727,7 @@ MonoBehaviour:
   TeamId: 0
   m_UseChildSensors: 1
   m_UseChildActuators: 1
-  m_ObservableAttributeHandling: 0
+  m_ObservableAttributeHandling: 2
 --- !u!114 &1295692440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42913,8 +42913,8 @@ EdgeCollider2D:
   - {x: 73.989426, y: -4.484034}
   - {x: 78.06514, y: -4.5012493}
   - {x: 77.939926, y: -10.67094}
-  - {x: 79.591995, y: -10.729206}
-  - {x: 79.541016, y: -3.6805212}
+  - {x: 79.227936, y: -10.666437}
+  - {x: 79.08486, y: -3.6636264}
   - {x: 90.31431, y: -3.6788578}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
@@ -43344,7 +43344,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1412448527}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 87.00465, y: -0.101307034, z: 0.20505847}
+  m_LocalPosition: {x: 86.6, y: -0.101307034, z: 0.20505847}
   m_LocalScale: {x: 4.9138, y: 3.627017, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43389,8 +43389,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 897825059
-  m_SortingLayer: -3
+  m_SortingLayerID: 1963620287
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: -785610310, guid: cc6ea00ca67cbfb44ac2901f4ec5607f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -43778,7 +43778,7 @@ MonoBehaviour:
   TeamId: 0
   m_UseChildSensors: 1
   m_UseChildActuators: 1
-  m_ObservableAttributeHandling: 0
+  m_ObservableAttributeHandling: 2
 --- !u!114 &1502856755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44224,8 +44224,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1636184955}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 91.27464, y: -0.09800708, z: 0.20505847}
-  m_LocalScale: {x: 4.9138, y: 3.6294148, z: 1}
+  m_LocalPosition: {x: 92.02, y: -0.09800708, z: 0.20505847}
+  m_LocalScale: {x: 8.26796, y: 3.6294148, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1716048841}
@@ -44269,8 +44269,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 897825059
-  m_SortingLayer: -3
+  m_SortingLayerID: 1963620287
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: -1897368868, guid: cc6ea00ca67cbfb44ac2901f4ec5607f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -46233,7 +46233,7 @@ MonoBehaviour:
   TeamId: 0
   m_UseChildSensors: 1
   m_UseChildActuators: 1
-  m_ObservableAttributeHandling: 0
+  m_ObservableAttributeHandling: 2
 --- !u!114 &2138919139
 MonoBehaviour:
   m_ObjectHideFlags: 0
