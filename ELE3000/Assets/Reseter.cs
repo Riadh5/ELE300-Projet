@@ -7,6 +7,8 @@ public class Reseter : MonoBehaviour
 {
     public GameObject[] coins;
     public Transform cameraStartPosition;
+    public bool IsHit;
+    public int Overlap;
 
     private float GenCount = 0f;
 
@@ -23,11 +25,20 @@ public class Reseter : MonoBehaviour
 
             ResetCameraPosition();
 
-            GenCount++;
+            Overlap += 1;
 
+            if (Overlap >= 1)
+            {
+                IsHit = true;
+            }
+            if (IsHit == true)
+            {
+                GenCount += 1;
+                Overlap = 0;
+            }
+            
             genText.text = " : " + GenCount;
 
-            Debug.Log("Generation :" + GenCount);
         }
     }
 
