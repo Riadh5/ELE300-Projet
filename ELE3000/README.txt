@@ -41,12 +41,3 @@ mlagents-learn --help
 mlagents-learn config/ppo/GetPortal.yaml --run-id=test###
 
 
-// RAPPORT
-
-UNE ERREUR NOTÉE 
-
-POURQUOI CETTE SOLUTION
-
-ÉTAT DES CHOSES 
-
-GRILLE D'AUTO EVALUATION A AJOUTER
