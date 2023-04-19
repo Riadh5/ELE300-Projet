@@ -274,7 +274,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: a48f495fcf29541a6a9c6a52d1744613, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: MLMoveAndCollect
@@ -13290,7 +13290,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: a48f495fcf29541a6a9c6a52d1744613, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: MLMoveAndCollect
@@ -13622,6 +13622,8 @@ MonoBehaviour:
   - {fileID: 2120080890}
   - {fileID: 1295950555}
   cameraStartPosition: {fileID: 785107467}
+  IsHit: 0
+  Overlap: 0
   genText: {fileID: 1268617044}
 --- !u!95 &356519063
 Animator:
@@ -14572,7 +14574,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: a48f495fcf29541a6a9c6a52d1744613, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: MLMoveAndCollect
@@ -14874,7 +14876,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: a48f495fcf29541a6a9c6a52d1744613, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: MLMoveAndCollect
@@ -15305,7 +15307,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: a48f495fcf29541a6a9c6a52d1744613, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: MLMoveAndCollect
@@ -16506,7 +16508,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: a48f495fcf29541a6a9c6a52d1744613, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: MLMoveAndCollect
@@ -16808,7 +16810,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: a48f495fcf29541a6a9c6a52d1744613, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: MLMoveAndCollect
@@ -18720,7 +18722,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: a48f495fcf29541a6a9c6a52d1744613, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: MLMoveAndCollect
@@ -42884,15 +42886,16 @@ EdgeCollider2D:
   - {x: 48.69757, y: -5.820038}
   - {x: 47.384396, y: -4.008066}
   - {x: 55.00301, y: -4.0020447}
-  - {x: 55.00231, y: -3.00067}
-  - {x: 56.00364, y: -2.9986167}
+  - {x: 54.99968, y: -3.0914764}
+  - {x: 56.00364, y: -3.0921602}
   - {x: 56.029236, y: -10.545425}
   - {x: 56.701534, y: -10.546125}
   - {x: 56.764812, y: -2.521394}
   - {x: 56.691788, y: -2.2062938}
-  - {x: 56.49861, y: -1.9976408}
-  - {x: 57.501366, y: -2.005097}
+  - {x: 56.49861, y: -2.0905447}
+  - {x: 57.49517, y: -2.0887105}
   - {x: 57.20038, y: -2.3705018}
+  - {x: 57.20174, y: -2.479687}
   - {x: 57.302074, y: -10.512759}
   - {x: 58.020325, y: -10.533716}
   - {x: 58.01862, y: -3.9386969}
@@ -43771,7 +43774,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: a48f495fcf29541a6a9c6a52d1744613, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: MLMoveAndCollect
@@ -46226,7 +46229,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: a48f495fcf29541a6a9c6a52d1744613, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: MLMoveAndCollect
